@@ -1,7 +1,7 @@
 "use client";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { userSchema } from "@/schema";
+import { signUpSchema } from "@/schema";
 import { z } from "zod";
 import {
   Form,
@@ -15,8 +15,8 @@ import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 
 const SignUpForm = () => {
-  const form = useForm<z.infer<typeof userSchema>>({
-    resolver: zodResolver(userSchema),
+  const form = useForm<z.infer<typeof signUpSchema>>({
+    resolver: zodResolver(signUpSchema),
     defaultValues: {
       name: "",
       email: "",
@@ -24,7 +24,7 @@ const SignUpForm = () => {
     },
   });
 
-  const onSubmit = (values: z.infer<typeof userSchema>) => {
+  const onSubmit = (values: z.infer<typeof signUpSchema>) => {
     console.log(values);
   };
 
